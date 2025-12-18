@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AnimatedOnScroll from '../components/ui/AnimatedOnScroll'
 
 export default function Benefits() {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -273,19 +274,7 @@ export default function Benefits() {
 
   return (
     <div className="bg-gray-950 text-white min-h-screen">
-      {/* Header */}
-      <nav className="flex items-center justify-between px-8 py-5 border-b border-gray-800">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold">O</span>
-          </div>
-          <h1 className="text-xl font-bold">OutReachly</h1>
-        </div>
-        <button className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition">
-          Get Started Free
-        </button>
-      </nav>
-
+     
       {/* Hero */}
       <section className="py-20 px-6 text-center border-b border-gray-800">
         <div className="max-w-4xl mx-auto">
@@ -305,11 +294,11 @@ export default function Benefits() {
       <section className="py-12 px-6 bg-gray-900">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
-            <div key={i} className="text-center">
+            <AnimatedOnScroll key={i} delay={i * 60} className="text-center" direction={i % 2 === 0 ? 'up' : 'down'}>
               <div className="text-4xl mb-2">{stat.icon}</div>
               <div className="text-3xl md:text-4xl font-bold text-blue-500 mb-1">{stat.value}</div>
               <div className="text-sm text-gray-400">{stat.label}</div>
-            </div>
+            </AnimatedOnScroll>
           ))}
         </div>
       </section>
@@ -366,8 +355,8 @@ export default function Benefits() {
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
-            {filteredBenefits.map((benefit) => (
-              <div key={benefit.id} className="bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden hover:border-blue-600/30 transition">
+            {filteredBenefits.map((benefit, idx) => (
+              <AnimatedOnScroll key={benefit.id} delay={idx * 70} className="bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden hover:border-blue-600/30 transition">
                 <div className="p-8">
                   <div className="flex items-start gap-4 mb-6">
                     <div className="text-5xl">{benefit.icon}</div>
@@ -407,7 +396,7 @@ export default function Benefits() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </AnimatedOnScroll>
             ))}
           </div>
         </div>

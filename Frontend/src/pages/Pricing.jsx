@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AnimatedOnScroll from '../components/ui/AnimatedOnScroll'
 
 export default function Pricing() {
   const [billingCycle, setBillingCycle] = useState('monthly');
@@ -210,18 +211,7 @@ export default function Pricing() {
 
   return (
     <div className="bg-gray-950 text-white min-h-screen">
-      {/* Header */}
-      <nav className="flex items-center justify-between px-8 py-5 border-b border-gray-800">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold">O</span>
-          </div>
-          <h1 className="text-xl font-bold">OutReachly</h1>
-        </div>
-        <button className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition">
-          Get Started Free
-        </button>
-      </nav>
+     
 
       {/* Hero */}
       <section className="py-20 px-6 text-center border-b border-gray-800">

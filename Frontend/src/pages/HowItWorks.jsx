@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AnimatedOnScroll from '../components/ui/AnimatedOnScroll'
 
 export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
@@ -124,18 +125,7 @@ export default function HowItWorks() {
 
   return (
     <div className="bg-gray-950 text-white min-h-screen">
-      {/* Header */}
-      <nav className="flex items-center justify-between px-8 py-5 border-b border-gray-800">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold">O</span>
-          </div>
-          <h1 className="text-xl font-bold">OutReachly</h1>
-        </div>
-        <button className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition">
-          Get Started Free
-        </button>
-      </nav>
+      
 
       {/* Hero Section */}
       <section className="py-20 px-6 text-center border-b border-gray-800">
@@ -180,30 +170,31 @@ export default function HowItWorks() {
       {/* Main Content */}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Step Header */}
-          <div className="text-center mb-16">
-            <div className="inline-block text-6xl mb-6">{steps[activeStep].icon}</div>
-            <div className="text-sm text-blue-400 font-semibold mb-2">STEP {steps[activeStep].number} OF 4</div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">{steps[activeStep].title}</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">{steps[activeStep].subtitle}</p>
-          </div>
+
+              {/* Step Header */}
+              <AnimatedOnScroll className="step-card text-center mb-16" direction="up" key={`step-header-${activeStep}`}>
+                <div className="inline-block text-6xl mb-6">{steps[activeStep].icon}</div>
+                <div className="text-sm text-blue-400 font-semibold mb-2">STEP {steps[activeStep].number} OF 4</div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">{steps[activeStep].title}</h2>
+                <p className="text-xl text-gray-400 max-w-2xl mx-auto">{steps[activeStep].subtitle}</p>
+              </AnimatedOnScroll>
 
           {/* Description */}
-          <div className="bg-gray-900 p-8 rounded-2xl border border-gray-800 mb-12">
+          <AnimatedOnScroll className="step-card mb-12 bg-gray-900 p-8 rounded-2xl border border-gray-800" key={`step-desc-${activeStep}`}>
             <p className="text-lg text-gray-300 leading-relaxed">
               {steps[activeStep].description}
             </p>
-          </div>
+          </AnimatedOnScroll>
 
           {/* Key Features */}
           <div className="mb-16">
             <h3 className="text-2xl font-bold mb-6">Key Features</h3>
             <div className="grid md:grid-cols-2 gap-4">
               {steps[activeStep].features.map((feature, i) => (
-                <div key={i} className="flex items-start gap-3 bg-gray-900 p-4 rounded-xl border border-gray-800">
+                <AnimatedOnScroll key={i} delay={i * 60} className="bg-gray-900 p-4 rounded-xl border border-gray-800 flex items-start gap-3" direction="left">
                   <span className="text-green-500 mt-1">✓</span>
                   <span className="text-gray-300">{feature}</span>
-                </div>
+                </AnimatedOnScroll>
               ))}
             </div>
           </div>
@@ -213,10 +204,10 @@ export default function HowItWorks() {
             <h3 className="text-2xl font-bold mb-8">How It Works in Detail</h3>
             <div className="space-y-6">
               {steps[activeStep].details.map((detail, i) => (
-                <div key={i} className="bg-gray-900 p-8 rounded-2xl border border-gray-800">
+                <AnimatedOnScroll key={i} delay={i * 80} className="bg-gray-900 p-8 rounded-2xl border border-gray-800" direction="right">
                   <h4 className="text-xl font-semibold mb-3 text-blue-400">{detail.heading}</h4>
                   <p className="text-gray-300 leading-relaxed">{detail.text}</p>
-                </div>
+                </AnimatedOnScroll>
               ))}
             </div>
           </div>
@@ -224,13 +215,13 @@ export default function HowItWorks() {
           {/* Visual Demo Placeholder */}
           <div className="mb-16">
             <h3 className="text-2xl font-bold mb-6">See It In Action</h3>
-            <div className="bg-gradient-to-br from-gray-900 to-gray-950 p-16 rounded-2xl border border-gray-800 text-center">
+            <AnimatedOnScroll className="bg-gradient-to-br from-gray-900 to-gray-950 p-16 rounded-2xl border border-gray-800 text-center" delay={80} key={`step-visual-${activeStep}`}>
               <div className="text-8xl mb-6">{steps[activeStep].image}</div>
               <p className="text-gray-400 text-lg">Interactive demo coming soon</p>
               <button className="mt-6 bg-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
                 Watch Video Demo
               </button>
-            </div>
+            </AnimatedOnScroll>
           </div>
 
           {/* Navigation */}

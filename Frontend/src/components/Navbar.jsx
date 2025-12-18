@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -14,9 +15,9 @@ function Navbar() {
       </div>
       
       <div className="hidden md:flex items-center gap-6">
-        <a href="#how" className="text-gray-400 hover:text-white transition">How It Works</a>
-        <a href="#benefits" className="text-gray-400 hover:text-white transition">Benefits</a>
-        <a href="#pricing" className="text-gray-400 hover:text-white transition">Pricing</a>
+        <Link to="/how" className="text-gray-400 hover:text-white transition">How It Works</Link>
+        <Link to="/benefits" className="text-gray-400 hover:text-white transition">Benefits</Link>
+        <Link to="/pricing" className="text-gray-400 hover:text-white transition">Pricing</Link>
       </div>
       
       <button className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition">
