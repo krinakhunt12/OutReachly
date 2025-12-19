@@ -9,6 +9,9 @@ import Login from '../pages/Auth/Login'
 import Register from '../pages/Auth/Register'
 import Dashboard from '../pages/Dashboard/Dashboard'
 import LeadSearch from '../pages/Leads/LeadSearch'
+import LeadConfirm from '../pages/Leads/LeadConfirm'
+import EmailComposer from '../pages/Email/EmailComposer'
+import OutreachStatus from '../pages/Email/OutreachStatus'
 
 function AppRoutes() {
   return (
@@ -23,6 +26,9 @@ function AppRoutes() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/leads" element={<LeadSearch />} />
+        <Route path="/leads/confirm" element={<LeadConfirm />} />
+        <Route path="/email/compose" element={<EmailComposer />} />
+        <Route path="/email/status" element={<OutreachStatus />} />
       </Routes>
     </BrowserRouter>
   )
