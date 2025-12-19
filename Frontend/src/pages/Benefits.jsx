@@ -274,7 +274,7 @@ export default function Benefits() {
 
   return (
     <div className="bg-gray-950 text-white min-h-screen">
-     
+    
       {/* Hero */}
       <section className="py-20 px-6 text-center border-b border-gray-800">
         <div className="max-w-4xl mx-auto">
